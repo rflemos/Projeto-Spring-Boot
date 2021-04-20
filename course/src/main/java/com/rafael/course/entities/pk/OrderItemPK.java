@@ -6,6 +6,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rafael.course.entities.Order;
 import com.rafael.course.entities.Product;
 
@@ -23,6 +24,10 @@ public class OrderItemPK implements Serializable {
 	@ManyToOne
 	@JoinColumn(name= "product_id")
 	private Product product;
+	
+	
+	
+	
 	
 	public Order getOrder() {
 		return order;

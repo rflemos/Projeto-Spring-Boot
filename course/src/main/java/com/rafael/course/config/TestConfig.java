@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.rafael.course.entities.Category;
 import com.rafael.course.entities.Order;
+import com.rafael.course.entities.OrderItem;
 import com.rafael.course.entities.Product;
 import com.rafael.course.entities.User;
 import com.rafael.course.entities.enuns.OrderStatus;
 import com.rafael.course.repositories.CategoryRepository;
+import com.rafael.course.repositories.OrderItemRepository;
 import com.rafael.course.repositories.OrderRepository;
 import com.rafael.course.repositories.ProductRepository;
 import com.rafael.course.repositories.UserRepository;
@@ -36,6 +38,9 @@ public class TestConfig implements CommandLineRunner//utililizado para executar 
 	
 	@Autowired
 	private ProductRepository productRepositoy;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -76,7 +81,12 @@ public class TestConfig implements CommandLineRunner//utililizado para executar 
 		orderRepository.saveAll(Arrays.asList(o1,o2,o3));
 		
 		
+		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 		
+		orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
 	
 		
 		
