@@ -1,13 +1,17 @@
 package com.rafael.course.entities.pk;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rafael.course.entities.Order;
+import com.rafael.course.entities.OrderItem;
 import com.rafael.course.entities.Product;
 
 
